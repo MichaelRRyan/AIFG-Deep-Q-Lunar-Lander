@@ -129,10 +129,10 @@ def train_dqn(episode):
 
         # Average score of last 100 episode
         is_solved = np.mean(loss[-100:])
+        print('\n Task Completed! \n')
+        # save model and architecture to single file
+        agent.model.save("lunar_model.h5")
         if is_solved > 200:
-            print('\n Task Completed! \n')
-            # save model and architecture to single file
-            agent.model.save("lunar_model.h5")
             break
         print("Average over last 100 episode: {0:.2f} \n".format(is_solved))
     return loss
